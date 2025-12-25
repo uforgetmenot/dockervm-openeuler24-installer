@@ -1,0 +1,24 @@
+services:
+  kvm:
+    container_name: openeuler24-kvm-installer
+    image: registry.seadee.com.cn:5000/openeuler24-kvm-installer:latest
+    build: .
+    devices:
+      - /dev/kvm:/dev/kvm
+    volumes:
+      - .:/vm-data:rw
+    environment:
+      LIBVIRT_DEFAULT_URI: qemu:///system
+      SPICE_PORT: 5900
+    ports:
+      - "15900:5900"
+      - "13389:3389"
+      - "15901:5901"
+      - "12222:2222"
+    tty: true
+    networks:
+      - virtualink
+
+networks:
+  virtualink:
+    external: true
