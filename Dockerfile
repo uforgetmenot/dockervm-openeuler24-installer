@@ -11,4 +11,4 @@ RUN dnf install -y /tmp/*.rpm && \
 COPY start-kvm.sh /usr/local/bin/start-kvm.sh
 RUN chmod +x /usr/local/bin/start-kvm.sh
 
-CMD ["/usr/local/bin/start-kvm.sh"]
+CMD ["/bin/bash", "/usr/local/bin/start-kvm.sh"]
